@@ -7,10 +7,10 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         //시스템에 입력을 할 수 있는 Scanner라는 객체를 새로 만들어서 scan 이라는 변수에 담겠다.
 
-        while (true) {
-            System.out.print("첫 번째 숫자 입력: ");
-            int num1 = scan.nextInt();
+        System.out.print("첫 번째 숫자 입력: ");
+        int num1 = scan.nextInt();
 
+        while (true) {
             System.out.print("기호를 입력: ");
             char gh = scan.next().charAt(0);
             //문자열이 아닌 문자이기에 char을 사용, 이후 문자열의 ()번째를 추출하는 객체인 charAt()를 사용.
@@ -39,19 +39,64 @@ public class Main {
 
             System.out.println("결과: " + result);
 
-            System.out.println("더 계산하시겠습니까? 원하지 않을 경우 입력: [exit]");
+            num1 = result;
+
+            System.out.println("종료를 원하시면 [exit]를 입력해주세요.");
             String answer = scan.next();
 
             if (answer.equals("exit")) {
                 System.out.println("종료하겠습니다");
                 break;
-            } else {
-                continue;
             }
         }
+
+
+
+//
+//                System.out.print("기호를 입력: ");
+//                char gh1 = scan.next().charAt(0);
+//                //문자열이 아닌 문자이기에 char을 사용, 이후 문자열의 ()번째를 추출하는 객체인 charAt()를 사용.
+//
+//                System.out.print("두 번째 숫자 입력: ");
+//                int nums = scan.nextInt();
+//
+//
+//                //콘솔을 통해 입력된 숫자가 실제 계산되기 위한 기능 구현(switch.ver)
+//                switch (gh1) {
+//                    case '+':
+//                        result = result + nums;break;
+//                    case '-':
+//                        result = result - nums;break;
+//                    case '*':
+//                        result = result * nums;break;
+//                    case '/':
+//                        if (num2 == 0) {
+//                            System.out.println("분모에는 0이 들어갈 수 없습니다.");
+//                        }
+//                        result = result / nums;break;
+//                    default:
+//                        System.out.println("잘못된 연산자 입니다.");
+//                }
+//                System.out.println("결과: " + result2);
+//            }
+//
+//            System.out.println("더 계산하시겠습니까? 원하지 않을 경우 입력: [exit]");
+//            String answer1 = scan.next();
+//
+//            if (answer1.equals("exit")) {
+//                System.out.println("종료하겠습니다");
+//                break;
+//            }
+
     }
 }
 
+
+
+
+
+
+///-----------------------------------------------------------------------------------
 
 //        String tex = scan.next();
 //        if(tex.equals("exit")) {
