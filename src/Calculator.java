@@ -7,7 +7,7 @@ public class Calculator {
 //- [x]  작업내용
 //- [x]  데이터 반환
 
-    int resultNum(int first, int second, char operator) {
+    Integer resultNum(int first, int second, char operator) {
         int result = 0;
 //         1)operator의 사칙연산의 부호가 무엇인지 판단을 한다. 조건문을 통해
 //         1.만약에 operator가 '+'가 들어간다면
@@ -15,19 +15,20 @@ public class Calculator {
             // first + second 나온 값을 변수 result에 담는다.
             result = first + second;
             // 3. result값을 반환한다.
-            return result;
         } else if (operator == '-') {
             result = first - second;
-            return result;
         } else if (operator == '*') {
             result = first * second;
-            return result;
         } else if (operator == '/') {
+            if (second == 0){
+                System.out.println("0인 분모를 나눌 수 없습니다.");
+                return null;
+            }
             result = first / second;
-            return result;
         } else {
-            return result;
+            System.out.println("잘못된 연산 기호 입니다.");
+            return null;
         }
+        return result;
     }
 }
-

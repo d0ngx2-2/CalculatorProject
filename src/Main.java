@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Calculator caculator = new Calculator();
+        Calculator calculator = new Calculator();
         //Calculator 객체를 생성
 
         //계산기 기능을 구현할 콘솔창을 띄우기
@@ -21,13 +21,16 @@ public class Main {
             System.out.print("두 번째 숫자 입력: ");
             int num2 = scan.nextInt(); //입력된 두번째 숫자를 저장
 
-            caculator.resultNum(num1, num2, gh);
-            //calculator 메서드를 통해 계산하기
+            Integer result = calculator.resultNum(num1, num2, gh);
 
-            System.out.println("결과: " + caculator.resultNum(num1, num2, gh));
+            if (result == null) {
+                continue;
+            }
+
+            System.out.println("결과: " + result);
             // 결과 값을 보여주기
 
-            num1 = caculator.resultNum(num1, num2, gh);
+            num1 = result;
             // 나온 결과 값을 다음 계산에 이어가기 위해 첫번째 숫자에 넣어주기
 
             // if문을 통해 while 구문에서 if조건문을 통해 exit 입력 시 종료할 수 있도록 break 기능 사용
