@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -22,15 +23,20 @@ public class Main {
             int num2 = scan.nextInt(); //입력된 두번째 숫자를 저장
 
             Integer result = calculator.resultNum(num1, num2, gh);
+            ArrayList<Integer> resultList = calculator.getResultList();
+
 
             if (result == null) {
                 continue;
             }
 
+
             System.out.println("결과: " + result);
             // 결과 값을 보여주기
+            System.out.println("저장된 결과 : " + resultList);
 
             num1 = result;
+
             // 나온 결과 값을 다음 계산에 이어가기 위해 첫번째 숫자에 넣어주기
 
             // if문을 통해 while 구문에서 if조건문을 통해 exit 입력 시 종료할 수 있도록 break 기능 사용
