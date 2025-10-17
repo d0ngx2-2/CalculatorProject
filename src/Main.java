@@ -1,57 +1,97 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        //Calculator 객체를 생성
 
         //계산기 기능을 구현할 콘솔창을 띄우기
         Scanner scan = new Scanner(System.in);
         //시스템에 입력을 할 수 있는 Scanner라는 객체를 새로 만들어서 scan 이라는 변수에 담겠다.
 
-        System.out.print("첫 번째 숫자 입력: ");
+        System.out.print("첫 번째 숫자를 입력해주세요.: ");
         int num1 = scan.nextInt();    //입력된 첫번째 숫자를 저장
 
-        //계산을 이어나가기 위해 부호 입력부터 반복하도록 while문 사용
+        //계산을 이어나가기 위한 부호 입력부터 반복하도록 while문 사용
         while (true) {      //반복문 내용이 true일 시 지속 반복
-            System.out.print("기호를 입력: ");
+            System.out.print("기호를 입력해주세요.: ");
             char gh = scan.next().charAt(0);
             //문자열이 아닌 문자이기에 char을 사용, 이후 문자열의 ()번째를 추출하는 객체인 charAt()를 사용.
 
-            System.out.print("두 번째 숫자 입력: ");
+            System.out.print("두 번째 숫자를 입력해주세요.: ");
             int num2 = scan.nextInt(); //입력된 두번째 숫자를 저장
 
-            int result = 0;
+            Integer result = calculator.resultNum(num1, num2, gh);
+            ArrayList<Integer> resultList = calculator.getResultList();
 
-            //콘솔을 통해 입력된 숫자가 실제 계산되기 위한 기능 구현(switch.ver)
-            // switch문을 통해 각 부호 입력 시 실행되는 기능 작성
-            switch (gh) {
-                case '+':
-                    result = num1 + num2;break;
-                case '-':
-                    result = num1 - num2;break;
-                case '*':
-                    result = num1 * num2;break;
-                case '/':
-                    if (num2 == 0) {    //if문을 통해 나눗셈에 분모 0이 들어갈 시 다음 문구가 나오도록 기능 작성
-                        System.out.println("분모에는 0이 들어갈 수 없습니다.");
-                    }
-                    result = num1 / num2;break;
-                default:     //위 사칙연산 부호 외 다른 것이 입력 시 아래 문구가 나오도록 기능 작성
-                    System.out.println("잘못된 연산자 입니다.");
+
+            if (result == null) {
+                continue;
             }
 
+
             System.out.println("결과: " + result);
-            // 결과 값을 보여주기
+            // 결과 값 출력
+            System.out.println("저장된 결과 : " + resultList);
+            // 결과값을 배열 형태로 출력
 
             num1 = result;
-            // 나온 결과 값을 다음 계산에 이어가기 위해 첫번째 숫자에 넣어주기
+            // 계산에 이어가기 위한 결과값 첫번째 넣어주기
 
-            // if문을 통해 while 구문에서 if조건문을 통해 exit 입력 시 종료할 수 있도록 break 기능 사용
-            System.out.println("종료를 원하시면 [exit]를 입력해주세요.");
-            String answer = scan.next();
+            //이후 진행여부 확인
+            System.out.println("원하시는 진행숫자를 입력해 주세요.[]");
+            System.out.println("1.이어서 계산\n2.저장값 수정\n3.저장 값 제거\n4.종료");
+            int allAnswer = scan.nextInt();
 
-            if (answer.equals("exit")) {
-                System.out.println("종료하겠습니다");
-                break;
+            //각 숫자 입력시 실행되는 기능
+            // 1번 이어서 계산하도록 continue
+            if (allAnswer == 1) {
+                continue;
+            }
+
+            //
+            if (allAnswer == 2) {
+                int index;
+
+                while(true) {
+                    System.out.println("몇번째 값을 수정하시겠습니까?");
+                    index = scan.nextInt();
+
+                    if (index < 1) {
+                        System.out.println("잘못된 순서값입니다. 다시 입력해주세요");
+                    } else {
+                        break;
+                    }
+                }
+
+
+                System.out.println("수정될 값을 입력해주세요");
+                int newnum = scan.nextInt();
+
+                calculator.setResultList(index, newnum);
+
+                System.out.println("수정된 저장값 = " + resultList);
+            }
+
+
+            if (allAnswer == 3) {
+                calculator.removeResult();
+                System.out.println("수정된 저장값 = " + resultList);
+            }
+
+
+
+
+            //종료를 위한 입력
+            if (allAnswer == 4) {
+                System.out.println("exit를 입력해주세요.");
+            // if문을 통해 while 구문에서 exit 입력 시 종료할 수 있도록 break 기능 사용
+                String answer = scan.next();
+                if (answer.equals("exit")) {
+                    System.out.println("종료하였습니다");
+                    break;
+                }
             }
         }
     }
