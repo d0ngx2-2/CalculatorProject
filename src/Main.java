@@ -13,7 +13,7 @@ public class Main {
         System.out.print("첫 번째 숫자를 입력해주세요.: ");
         int num1 = scan.nextInt();    //입력된 첫번째 숫자를 저장
 
-        //계산을 이어나가기 위해 부호 입력부터 반복하도록 while문 사용
+        //계산을 이어나가기 위한 부호 입력부터 반복하도록 while문 사용
         while (true) {      //반복문 내용이 true일 시 지속 반복
             System.out.print("기호를 입력해주세요.: ");
             char gh = scan.next().charAt(0);
@@ -52,17 +52,28 @@ public class Main {
 
             //
             if (allAnswer == 2) {
-                System.out.println("몇번째 값을 수정하시겠습니까?(순서는 0부터시작입니다.)");
-                int index = scan.nextInt();
+                int index;
+
+                while(true) {
+                    System.out.println("몇번째 값을 수정하시겠습니까?");
+                    index = scan.nextInt();
+
+                    if (index < 1) {
+                        System.out.println("잘못된 순서값입니다. 다시 입력해주세요");
+                    } else {
+                        break;
+                    }
+                }
 
 
                 System.out.println("수정될 값을 입력해주세요");
                 int newnum = scan.nextInt();
 
-
                 calculator.setResultList(index, newnum);
+
                 System.out.println("수정된 저장값 = " + resultList);
             }
+
 
             if (allAnswer == 3) {
                 calculator.removeResult();

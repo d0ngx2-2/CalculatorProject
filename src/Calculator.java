@@ -40,10 +40,10 @@ public class Calculator {
 
     // 저장된 배열 속에서 수정하는 메서드 (0부터시작하는 순서, 바꿔들어갈 숫자)
     void setResultList(int index, int newNum) {
-        this.resultList.set(index, newNum);
+        this.resultList.set(index - 1, newNum);
     }
 
-    // 저장된 배열 속에서 삭제시키는 메서드 (순서 입력(0부터시작))
+    // 저장된 배열 속에서 첫번째 숫자를 삭제시키는 메서드 (순서 입력(0부터시작))
     void removeResult() {
         this.resultList.remove(0);
     }
