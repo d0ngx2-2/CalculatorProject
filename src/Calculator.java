@@ -28,6 +28,7 @@ public class Calculator {
             System.out.println("잘못된 연산 기호 입니다.");
             return null;
         }
+
         //계산된 result값을 resultList 배열에 저장
         //계산된 result값을 반환
         resultList.add(result);
