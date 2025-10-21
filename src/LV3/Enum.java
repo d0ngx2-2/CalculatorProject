@@ -1,7 +1,6 @@
 package LV3;
 
     // Enum을 활용한 사칙연산 관리
-public class Enum {
     public  enum Operator{    //Operator라는 부호를 묶기 위한 enum 선언
         PLUS('+'),            // 부호들 enum안에 묶음 설정
         MINUS('-'),
@@ -19,5 +18,4 @@ public class Enum {
         //실제 내부의 부호를 쓰기 위한 getter 활용
         public char getOperator() {
         return operator;}
-    }
-};
+    };

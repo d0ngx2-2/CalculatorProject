@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 //연산 결과를 저장하는 컬랙션 타입 필드 선언 및 생성 , Enum을 활용하기 위한 class Enum 참조
-public class Calculator extends Enum {
+public class Calculator {
 
     // 컬랙션 타입을 Double로 변경함에 따라 실수까지 받을 수 있게 설정
     private ArrayList<Double> resultList = new ArrayList<>();
