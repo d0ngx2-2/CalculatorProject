@@ -62,7 +62,7 @@ public class Main {
             }
 
             // 2번 결과 값 배열 내 숫자 수정하는 기능
-            if (allAnswer == 2) {
+            else if (allAnswer == 2) {
                 int index;
 
                 while (true) {
@@ -87,13 +87,13 @@ public class Main {
             }
 
             //첫번째 저장 값을 지우는 remove기능 제거 설정
-            if (allAnswer == 3) {
+            else if (allAnswer == 3) {
                 calculator.removeResult();
                 System.out.println("수정된 저장값 = " + resultList);
             }
 
             //스트림 및 람다를 이용한 정한 숫자 보다 큰 값 조회하기
-            if (allAnswer == 4) {
+            else if (allAnswer == 4) {
                 System.out.println("숫자를 입력해주세요. 다음 입력한 숫자보다 큰 숫자들을 조회합니다.");
                 double num3 = scan.nextDouble();
                 ArrayList<Double> filtering = calculator.findList(num3);
@@ -102,7 +102,7 @@ public class Main {
 
 
             //종료를 위한 입력
-            if (allAnswer == 5) {
+            else if (allAnswer == 5) {
                 System.out.println("exit를 입력해주세요.");
                 // if문을 통해 while 구문에서 exit 입력 시 종료할 수 있도록 break 기능 사용
                 String answer = scan.next();
